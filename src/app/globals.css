@@ -8,7 +8,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.header {
-  background-image: black;
-}
