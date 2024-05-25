@@ -1,3 +1,14 @@
+@font-face {
+  font-family: "comic-cat";
+  src:
+    local("comic-cat"),
+    url("../assets/comic-cat.otf") format("opentype");
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.header {
+  background-image: black;
+}
