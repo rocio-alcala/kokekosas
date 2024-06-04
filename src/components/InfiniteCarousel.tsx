@@ -16,18 +16,27 @@ export default function InfiniteCarousel() {
     "-",
     "KOKEDAMA",
     "-",
+    "MUSGO",
+    "-",
+    "BOLA",
+    "-",
+    "PLANTA",
+    "-",
+    "KOKEDAMA",
+    "-",
   ];
 
   return (
-    <div className="flex overflow-hidden">
-      <div className="flex animate-infiniteScroll flex-nowrap bg-black">
+    <div className="group flex overflow-hidden hover:animate-none">
+      <div className="group-hover:pauseAnimation flex animate-infiniteScroll flex-nowrap bg-black">
         {carouselText.map((text) => (
           <span className="p-5 text-xl font-bold text-white" key={text}>
             {text}
           </span>
         ))}
       </div>
-      <div className="flex animate-infiniteScroll flex-nowrap bg-black">
+      {/* copia para que se cubra el espacio desplazado hasta que se vuelve a iniciar la animacion */}
+      <div className="group-hover:pauseAnimation flex animate-infiniteScroll flex-nowrap bg-black">
         {carouselText.map((text) => (
           <span className="p-5 text-xl font-bold text-white" key={text}>
             {text}

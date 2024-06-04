@@ -8,3 +8,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .animateOnScroll {
+    animation-timeline: scroll();
+  }
+
+  .pauseAnimation {
+    animation-play-state: paused;
+  }
+}
