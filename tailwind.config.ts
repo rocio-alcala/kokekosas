@@ -28,8 +28,12 @@ const config: Config = {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(-100%)" },
         },
+        blur: { to: { "backdrop-filter": "blur(10px)" } },
       },
-      animation: { infiniteScroll: "infiniteScroll 50s linear infinite" },
+      animation: {
+        infiniteScroll: "infiniteScroll 25s linear infinite",
+        blur: "blur ease",
+      },
     },
   },
   plugins: [],
