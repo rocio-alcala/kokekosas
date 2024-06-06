@@ -1,7 +1,9 @@
 import Button from "@/components/Button";
+import CuidadosSection from "@/components/CuidadosSection";
 import InfiniteCarousel from "@/components/InfiniteCarousel";
 import KokedamaSection from "@/components/KokedamaSection";
 import NavBar from "@/components/NavBar";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -22,7 +24,7 @@ export default function Home() {
             <h1 className="shrink font-vidaloka text-6xl font-extrabold text-[#FFF5D6] sm:text-8xl lg:text-9xl">
               Una pieza de arte vivo
             </h1>
-            <Button className="ml-1 mt-5 w-fit text-[#FFF5D6] md:border-4 md:text-xl">
+            <Button className="ml-1 mt-5 w-fit border-[#FFF5D6] text-[#FFF5D6] md:border-4 md:text-xl">
               ENCARGA TU KOKEDAMA
             </Button>
           </div>
@@ -31,14 +33,15 @@ export default function Home() {
           <InfiniteCarousel />
           <KokedamaSection />
         </section>
-        <section id="cuidados" className="h-svh bg-slate-500">
-          <h2>Trae un pedacito de bosque a tu hogar</h2>
-          <h2>Llevate un pedacito de bosque a tu hogar</h2>
-          <h2>Vive la magia del bosque en casa</h2>
-          <h2>Bosque en miniatura, paz en tu hogar</h2>
-          <h2>Las plantas como forma de arte</h2>
-          <h2>Un rincón de bosque en cada habitación</h2>
-          <h2>Kokedamas como una parte de tu decoracion</h2>
+        <Image
+          src={"/wave-1.svg"}
+          alt="wave"
+          height={100}
+          width={1000}
+          className="w-full"
+        />
+        <section id="cuidados" className="bg-[#904B31] p-8">
+          <CuidadosSection />
         </section>
         <section id="productos" className="h-svh bg-stone-800"></section>
         <section id="contacto" className="h-svh bg-red-600"></section>
