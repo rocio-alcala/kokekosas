@@ -4,6 +4,13 @@ import { useEffect, useState } from "react";
 import NavBarItem from "./NavBarItem";
 import { PiPottedPlantFill } from "react-icons/pi";
 
+const NavBarItems = [
+  { name: "kokedama", icon: PiPottedPlantFill },
+  { name: "cuidados", icon: PiPottedPlantFill },
+  { name: "productos", icon: PiPottedPlantFill },
+  { name: "contacto", icon: PiPottedPlantFill },
+];
+
 export default function NavBar() {
   function scrollOnClick(id: string) {
     const section = document.getElementById(id);
@@ -14,10 +21,8 @@ export default function NavBar() {
 
   useEffect(() => {
     const sections = document.querySelectorAll("section");
-    console.log(sections);
     const sectionsObserver = new IntersectionObserver(
       (entries) => {
-        console.log(entries);
         entries.forEach((entrie) => {
           if (entrie.isIntersecting) setActiveSection(entrie.target.id);
         });
@@ -29,36 +34,17 @@ export default function NavBar() {
   }, []);
 
   return (
-    <nav className="fixed left-0 top-0 flex w-full justify-end bg-transparent p-5 text-white">
-      <ul className="flex gap-3">
-        <NavBarItem
-          onClick={() => scrollOnClick("kokedama")}
-          Icon={PiPottedPlantFill}
-          active={activeSection === "kokedama"}
-        >
-          KOKEDAMA
-        </NavBarItem>
-        <NavBarItem
-          onClick={() => scrollOnClick("cuidados")}
-          Icon={PiPottedPlantFill}
-          active={activeSection === "cuidados"}
-        >
-          CUIDADOS
-        </NavBarItem>
-        <NavBarItem
-          onClick={() => scrollOnClick("productos")}
-          Icon={PiPottedPlantFill}
-          active={activeSection === "productos"}
-        >
-          PRODUCTOS
-        </NavBarItem>
-        <NavBarItem
-          onClick={() => scrollOnClick("contacto")}
-          Icon={PiPottedPlantFill}
-          active={activeSection === "contacto"}
-        >
-          CONTACTO
-        </NavBarItem>
+    <nav className="animate-blur animateOnScroll fixed left-0 top-0 z-50 flex w-full justify-end bg-transparent p-5 text-white">
+      <ul className="flex gap-12">
+        {NavBarItems.map((navBarItem) => (
+          <NavBarItem
+            key={navBarItem.name}
+            onClick={() => scrollOnClick(navBarItem.name)}
+            active={activeSection === navBarItem.name}
+          >
+            {navBarItem.name.toUpperCase()}
+          </NavBarItem>
+        ))}
       </ul>
     </nav>
   );
