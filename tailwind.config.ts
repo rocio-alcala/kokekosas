@@ -29,10 +29,31 @@ const config: Config = {
           to: { transform: "translateX(-100%)" },
         },
         blur: { to: { "backdrop-filter": "blur(10px)" } },
+        sink: {
+          "0%": {
+            transform: "translateY(-10px)",
+          },
+          "50%": {
+            transform: "translateY(0)",
+          },
+          "100%": {
+            transform: "translateY(-10px)",
+          },
+        },
+        "nav-bar": {
+          to: {
+            "background-color": "black",
+            color: " antiquewhite",
+            "box-shadow":
+              "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+          },
+        },
       },
       animation: {
         infiniteScroll: "infiniteScroll 25s linear infinite",
         blur: "blur ease",
+        "nav-bar": "nav-bar ease",
+        "slow-sink": "sink 3s ease-in-out infinite",
       },
     },
   },
