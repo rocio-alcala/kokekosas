@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import NavBarItem from "./NavBarItem";
 import { PiPottedPlantFill } from "react-icons/pi";
+import { cn } from "@/helpers";
 
 const NavBarItems = [
   { name: "kokedama", icon: PiPottedPlantFill },
@@ -18,6 +19,7 @@ export default function NavBar() {
   }
 
   const [activeSection, setActiveSection] = useState("home");
+  const [isScroll, setIsScroll] = useState(false);
 
   useEffect(() => {
     const sections = document.querySelectorAll("section");
@@ -27,25 +29,44 @@ export default function NavBar() {
           if (entrie.isIntersecting) setActiveSection(entrie.target.id);
         });
       },
-      { threshold: 0.5 },
+      { threshold: 0.4 },
     );
 
     sections.forEach((section) => sectionsObserver.observe(section));
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) setIsScroll(true);
+      else {
+        setIsScroll(false);
+      }
+    });
   }, []);
 
+  console.log(isScroll);
+
   return (
-    <nav className="animateOnScroll fixed left-0 top-0 z-50 flex w-full animate-blur justify-end bg-transparent p-5 text-white">
-      <ul className="flex gap-12">
-        {NavBarItems.map((navBarItem) => (
-          <NavBarItem
-            key={navBarItem.name}
-            onClick={() => scrollOnClick(navBarItem.name)}
-            active={activeSection === navBarItem.name}
-          >
-            {navBarItem.name.toUpperCase()}
-          </NavBarItem>
-        ))}
-      </ul>
-    </nav>
+    <>
+      {/* background on scroll div */}
+      <div
+        className={cn(
+          `fixed left-0 top-[-100px] z-[1000] flex h-14 w-full justify-end bg-black p-5 text-white opacity-0 shadow-lg transition-all duration-700 ease-out`,
+          isScroll && "top-0 opacity-100",
+        )}
+      ></div>
+      {/* navbar-desktop */}
+      <nav className="fixed left-0 top-0 z-[1000] flex h-14 w-full justify-end bg-transparent p-3 px-10 text-white">
+        <ul className="flex gap-12">
+          {NavBarItems.map((navBarItem) => (
+            <NavBarItem
+              key={navBarItem.name}
+              onClick={() => scrollOnClick(navBarItem.name)}
+              active={activeSection === navBarItem.name}
+            >
+              {navBarItem.name.toUpperCase()}
+            </NavBarItem>
+          ))}
+        </ul>
+      </nav>
+    </>
   );
 }
