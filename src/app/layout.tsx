@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${vidaloka.variable} ${mulish.variable}  ${manrope.variable} ${poppins.variable} ${inconsolata.variable} font-inconsolata`}
+        className={`${vidaloka.variable} ${mulish.variable}  ${manrope.variable} ${poppins.variable} ${inconsolata.variable} font-inconsolata `}
       >
         {children}
         <Footer />
