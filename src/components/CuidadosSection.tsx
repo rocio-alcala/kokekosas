@@ -25,7 +25,7 @@ const kokedamaCuidados = [
 export default function CuidadosSection() {
   const [carouselIndex, setCarouselIndex] = useState(0);
   return (
-    <div className="flex items-center justify-around font-manrope">
+    <div className="flex items-center justify-around py-20 font-manrope">
       {carouselIndex > 0 && (
         <a
           onClick={() => {

@@ -1,4 +1,4 @@
-import { cn } from "../../helpers";
+import { cn } from "../helpers";
 
 interface ButtonSpecificPropsType {
   isLoading?: boolean;

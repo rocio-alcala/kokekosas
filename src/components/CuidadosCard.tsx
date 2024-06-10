@@ -22,11 +22,17 @@ export default function CuidadosCard({
       transition={{ duration: 0.5 }}
       className="flex flex-col items-center gap-8 p-10 text-2xl text-[#FFF5D6] md:flex-row"
     >
-      <div className="flex flex-col gap-5 ">
-        <h2 className="font-vidaloka text-5xl font-bold">{title}</h2>
+      <div className="flex flex-col gap-5 self-stretch">
+        <h3 className="font-vidaloka text-5xl font-bold">{title}</h3>
         <p>{text}</p>
       </div>
-      <Image src={imgPath} alt={`${title} image`} height={300} width={400} />
+      <Image
+        src={imgPath}
+        alt={`${title} image`}
+        height={300}
+        width={400}
+        className="self-stretch object-cover"
+      />
     </motion.div>
   );
 }
