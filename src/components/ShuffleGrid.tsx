@@ -51,9 +51,10 @@ function generateSquares() {
     <motion.img
       src={sq.imgPath}
       key={sq.id}
-      className="h-full w-full object-cover"
+      className="h-[100px] w-[200px] object-cover sm:h-[200px]"
       layout // animate to new position if changes
       transition={{ duration: 1.5, type: "spring" }}
+      style={{ willChange: "transform" }}
     />
   ));
 }
@@ -74,9 +75,5 @@ export default function ShuffleGrid() {
     };
   }, []);
 
-  return (
-    <div className="grid max-h-[800px] grid-cols-4 grid-rows-4 gap-1">
-      {squares}
-    </div>
-  );
+  return <div className="grid grid-cols-4 grid-rows-4 gap-1">{squares}</div>;
 }
