@@ -1,3 +1,4 @@
+import { cn } from "@/helpers";
 import { PropsWithChildren } from "react";
 import { IconType } from "react-icons";
 
@@ -16,7 +17,10 @@ export default function NavBarItem({
   return (
     <li
       onClick={onClick}
-      className={`navbar-item transition-* group m-2 flex items-center gap-2 font-mulish text-xl font-bold duration-300 hover:cursor-pointer hover:text-yellow-400 ${active && "text-yellow-400"}`}
+      className={cn(
+        "navbar-item transition-* group m-2 flex items-center gap-2 font-mulish text-xl font-bold duration-300 hover:cursor-pointer hover:text-yellow-400",
+        active && "text-yellow-400",
+      )}
     >
       {Icon && (
         <Icon

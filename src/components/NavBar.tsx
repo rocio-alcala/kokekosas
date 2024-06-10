@@ -33,16 +33,20 @@ export default function NavBar() {
     );
 
     sections.forEach((section) => sectionsObserver.observe(section));
-
-    window.addEventListener("scroll", () => {
+    function handleScroll() {
       if (window.scrollY > 50) setIsScroll(true);
       else {
         setIsScroll(false);
       }
-    });
-  }, []);
+    }
 
-  console.log(isScroll);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      sectionsObserver.disconnect();
+    };
+  }, []);
 
   return (
     <>
