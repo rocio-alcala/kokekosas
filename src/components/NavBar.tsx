@@ -64,7 +64,8 @@ export default function NavBar() {
             <NavBarItem
               key={navBarItem.name}
               onClick={() => scrollOnClick(navBarItem.name)}
-              active={activeSection === navBarItem.name}
+              isActive={activeSection === navBarItem.name}
+              isScroll={isScroll}
             >
               {navBarItem.name.toUpperCase()}
             </NavBarItem>
