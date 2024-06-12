@@ -1,38 +1,49 @@
 import Image from "next/image";
 import React from "react";
-import { motion } from "framer-motion";
+import { cn } from "@/helpers";
 
 interface CuidadosCardProps {
   title: string;
   text: string;
   imgPath: string;
+  isActive?: boolean;
+  onClick: () => void;
 }
 
 export default function CuidadosCard({
   title,
   text,
   imgPath,
+  isActive,
+  onClick,
 }: CuidadosCardProps) {
   return (
-    <motion.div
-      layout
-      initial={{ opacity: 0, x: 100 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: -100 }}
-      transition={{ duration: 0.5 }}
-      className="flex flex-col items-center gap-8 p-10 text-2xl text-[#FFF5D6] md:flex-row"
+    <div
+      onMouseOver={onClick}
+      className={cn(
+        "group h-fit w-[95%] rounded-3xl bg-[#FFF5D6] p-7 text-2xl text-black shadow-xl  hover:cursor-pointer md:w-[85%]",
+      )}
     >
-      <div className="flex flex-col gap-5 self-stretch">
-        <h3 className="font-vidaloka text-5xl font-bold">{title}</h3>
-        <p>{text}</p>
+      <h3 className="text-center font-vidaloka text-4xl font-bold tracking-widest">
+        {title.toUpperCase()}
+      </h3>
+      <div
+        className={cn(
+          "grid grid-rows-[0fr] transition-all duration-1000 group-hover:grid-rows-[1fr]",
+          isActive && "grid-rows-[1fr]",
+        )}
+      >
+        <div className=" flex flex-col items-center gap-5 overflow-hidden md:flex-row">
+          <p className="my-6">{text}</p>
+          <Image
+            src={imgPath}
+            alt={`${title} image`}
+            height={400}
+            width={400}
+            className="my-6 h-96 object-cover"
+          />
+        </div>
       </div>
-      <Image
-        src={imgPath}
-        alt={`${title} image`}
-        height={300}
-        width={400}
-        className="self-stretch object-cover"
-      />
-    </motion.div>
+    </div>
   );
 }

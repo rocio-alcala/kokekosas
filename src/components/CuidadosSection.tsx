@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import CuidadosCard from "./CuidadosCard";
+import { cn } from "@/helpers";
 
 const kokedamaCuidados = [
   {
@@ -23,31 +24,26 @@ const kokedamaCuidados = [
 ];
 
 export default function CuidadosSection() {
-  const [carouselIndex, setCarouselIndex] = useState(0);
+  const [activeSection, setActiveSection] = useState("");
   return (
-    <div className="flex items-center justify-around py-20 font-manrope">
-      {carouselIndex > 0 && (
-        <a
-          onClick={() => {
-            if (carouselIndex > 0) setCarouselIndex(carouselIndex - 1);
-          }}
-          className="content-center self-stretch hover:cursor-pointer"
-        >
-          <IoIosArrowBack size={35} className="fill-[#FFF5D6]" />
-        </a>
-      )}
-      <CuidadosCard {...kokedamaCuidados[carouselIndex]} />
-      {carouselIndex < kokedamaCuidados.length - 1 && (
-        <a
-          onClick={() => {
-            if (carouselIndex < kokedamaCuidados.length - 1)
-              setCarouselIndex(carouselIndex + 1);
-          }}
-          className="content-center self-stretch hover:cursor-pointer"
-        >
-          <IoIosArrowForward size={35} className="fill-[#FFF5D6]" />
-        </a>
-      )}
-    </div>
+    <>
+      <h2 className="m-16 text-center font-vidaloka text-5xl font-bold tracking-wide text-[#FFF5D6] md:text-7xl">
+        Descubri como cuidar tu kokedama
+      </h2>
+      <div
+        className={cn(
+          "flex h-full flex-col items-center justify-center gap-5 py-20 font-manrope",
+        )}
+      >
+        {kokedamaCuidados.map((cuidado) => (
+          <CuidadosCard
+            key={cuidado.title}
+            {...cuidado}
+            isActive={activeSection === cuidado.title}
+            onClick={() => setActiveSection(cuidado.title)}
+          />
+        ))}
+      </div>
+    </>
   );
 }

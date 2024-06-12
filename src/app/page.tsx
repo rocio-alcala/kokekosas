@@ -40,7 +40,7 @@ export default function Home() {
           width={1000}
           className="w-full"
         />
-        <section id="cuidados" className="bg-[#904B31] p-8">
+        <section id="cuidados" className="bg-[#904B31] p-12 md:py-24">
           <CuidadosSection />
         </section>
         <Image
@@ -50,9 +50,7 @@ export default function Home() {
           width={1000}
           className="w-full"
         />
-        <section id="productos" className="bg-[#FFF5D6]">
-       
-        </section>
+        <section id="productos" className="bg-[#FFF5D6]"></section>
         <section id="contacto" className="h-svh bg-[#FFF5D6]"></section>
       </main>
     </>
