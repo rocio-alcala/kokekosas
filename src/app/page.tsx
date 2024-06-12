@@ -40,7 +40,7 @@ export default function Home() {
           width={1000}
           className="w-full"
         />
-        <section id="cuidados" className="bg-[#904B31] p-12 md:py-24">
+        <section id="cuidados" className="bg-[#904B31] py-12 md:py-24">
           <CuidadosSection />
         </section>
         <Image

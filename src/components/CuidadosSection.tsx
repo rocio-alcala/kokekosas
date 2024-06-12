@@ -27,12 +27,12 @@ export default function CuidadosSection() {
   const [activeSection, setActiveSection] = useState("");
   return (
     <>
-      <h2 className="m-16 text-center font-vidaloka text-5xl font-bold tracking-wide text-[#FFF5D6] md:text-7xl">
+      <h2 className="my-12 p-5 text-center font-vidaloka text-5xl font-bold tracking-wide text-[#FFF5D6] transition-all duration-500 md:m-16 md:text-7xl">
         Descubri como cuidar tu kokedama
       </h2>
       <div
         className={cn(
-          "flex h-full flex-col items-center justify-center gap-5 py-20 font-manrope",
+          "flex h-full flex-col items-center justify-center gap-5 font-manrope transition-all duration-500 md:py-20",
         )}
       >
         {kokedamaCuidados.map((cuidado) => (

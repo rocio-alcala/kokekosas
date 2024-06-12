@@ -19,22 +19,24 @@ export default function CuidadosCard({
 }: CuidadosCardProps) {
   return (
     <div
-      onMouseOver={onClick}
+      onClick={onClick}
       className={cn(
         "group h-fit w-[95%] rounded-3xl bg-[#FFF5D6] p-7 text-2xl text-black shadow-xl  hover:cursor-pointer md:w-[85%]",
       )}
     >
-      <h3 className="text-center font-vidaloka text-4xl font-bold tracking-widest">
+      <h3 className="text-center font-vidaloka text-2xl font-bold tracking-widest md:text-4xl">
         {title.toUpperCase()}
       </h3>
       <div
         className={cn(
-          "grid grid-rows-[0fr] transition-all duration-1000 group-hover:grid-rows-[1fr]",
+          "grid grid-rows-[0fr] transition-all duration-1000",
           isActive && "grid-rows-[1fr]",
         )}
       >
-        <div className=" flex flex-col items-center gap-5 overflow-hidden md:flex-row">
-          <p className="my-6">{text}</p>
+        <div className=" flex flex-col items-center gap-5 overflow-hidden lg:flex-row">
+          <p className="my-6 text-justify font-manrope text-xl text-gray-900 md:text-2xl">
+            {text}
+          </p>
           <Image
             src={imgPath}
             alt={`${title} image`}
