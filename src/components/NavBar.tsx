@@ -22,6 +22,10 @@ export default function NavBar() {
   const [isScroll, setIsScroll] = useState(false);
 
   useEffect(() => {
+    // check initial state of scroll to style NavBar
+    if (window.scrollY > 50) setIsScroll(true);
+
+    // define observer and define active section for style
     const sections = document.querySelectorAll("section");
     const sectionsObserver = new IntersectionObserver(
       (entries) => {
@@ -31,17 +35,18 @@ export default function NavBar() {
       },
       { threshold: 0.4 },
     );
-
     sections.forEach((section) => sectionsObserver.observe(section));
+
+    // event listener on scroll and set state to style navbar
     function handleScroll() {
       if (window.scrollY > 50) setIsScroll(true);
       else {
         setIsScroll(false);
       }
     }
-
     window.addEventListener("scroll", handleScroll);
 
+    // clean event listener and observer
     return () => {
       window.removeEventListener("scroll", handleScroll);
       sectionsObserver.disconnect();
