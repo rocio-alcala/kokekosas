@@ -28,6 +28,11 @@ const config: Config = {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(-100%)" },
         },
+        fadeSliceIn: {
+          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+
         blur: { to: { "backdrop-filter": "blur(10px)" } },
         sink: {
           "0%": {
@@ -40,12 +45,20 @@ const config: Config = {
             transform: "translateY(-10px)",
           },
         },
-        "nav-bar": {
-          to: {
-            "background-color": "black",
-            color: " antiquewhite",
-            "box-shadow":
-              "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+        rotate: {
+          "0%": { transform: "rotate(0deg)" },
+          "10%, 30%, 50%": { transform: "rotate(-10deg)" },
+          "70%, 90%": { transform: "rotate(-6deg)" },
+          "60%, 80%": { transform: "rotate(-7deg)" },
+          "20%, 40%": { transform: "rotate(-5deg)" },
+          "100%": { transform: "rotate(-5deg)" },
+        },
+        "fade-in": {
+          "0%": {
+            opacity: "0",
+          },
+          "100%": {
+            opacity: "1",
           },
         },
       },
@@ -53,7 +66,13 @@ const config: Config = {
         infiniteScroll: "infiniteScroll 25s linear infinite",
         blur: "blur ease",
         "nav-bar": "nav-bar ease",
+        rotate: "rotate 3s ease forwards",
         "slow-sink": "sink 3s ease-in-out infinite",
+        fadeSliceIn: "fadeSliceIn 2s ease",
+        fadeIn: "fade-in 1s ease"
+      },
+      transitionProperty: {
+        h: "height",
       },
     },
   },
