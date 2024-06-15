@@ -69,7 +69,7 @@ const config: Config = {
         rotate: "rotate 3s ease forwards",
         "slow-sink": "sink 3s ease-in-out infinite",
         fadeSliceIn: "fadeSliceIn 2s ease",
-        fadeIn: "fade-in 1s ease"
+        fadeIn: "fade-in 1s ease",
       },
       transitionProperty: {
         h: "height",

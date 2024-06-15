@@ -14,7 +14,17 @@
     animation-timeline: scroll();
   }
 
+  .animateOnView {
+    animation-timeline: view();
+    animation-range-start: cover;
+    animation-range-end: 300px;
+  }
+
   .pauseAnimation {
     animation-play-state: paused;
   }
+}
+
+* {
+  @apply transition-all duration-300 ease-in-out;
 }
