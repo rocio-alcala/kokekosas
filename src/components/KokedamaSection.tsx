@@ -1,3 +1,4 @@
+import Reveal from "./Reveal";
 import ShuffleGrid from "./ShuffleGrid";
 
 export default function KokedamaSection() {
@@ -5,7 +6,7 @@ export default function KokedamaSection() {
     <>
       {/*       <AnimacionKokedama /> */}
       <div className="transition-basis flex flex-col items-center gap-12 bg-[#FFF5D6] p-5 font-manrope text-2xl text-gray-900 duration-500 sm:p-12 md:p-20  lg:flex-row">
-        <div className="flex flex-col gap-8 lg:w-[45%]">
+        <Reveal className="flex flex-col gap-8 lg:w-[45%]">
           <h2 className="my-4 font-vidaloka text-5xl font-bold tracking-wide text-black md:text-7xl">
             El arte de la kokedama
           </h2>
@@ -27,10 +28,10 @@ export default function KokedamaSection() {
             <span className="font-extrabold">rincón del bosque</span> a nuestros
             hogares, liberándonos de la necesidad de contenerlo en una maceta.
           </p>
-        </div>
-        <div className="lg:w-[55%]">
+        </Reveal>
+        <Reveal className="lg:w-[55%]">
           <ShuffleGrid />
-        </div>
+        </Reveal>
       </div>
     </>
   );
