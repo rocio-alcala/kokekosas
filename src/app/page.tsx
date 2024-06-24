@@ -24,7 +24,7 @@ export default function Home() {
             <h1 className="shrink font-vidaloka text-6xl font-extrabold text-[#FFF5D6] transition-all duration-300 sm:text-8xl lg:text-9xl">
               Una pieza de arte vivo
             </h1>
-            <Button className="ml-1 mt-5 w-fit rounded-md border-[#FFF5D6] text-[#FFF5D6] hover:bg-[#FFF5D6] hover:text-gray-900 hover:backdrop-opacity-30 sm:border-4 sm:text-2xl">
+            <Button className="ml-1 mt-5 w-fit rounded-md border-[#FFF5D6] font-extrabold text-[#FFF5D6] hover:bg-[#FFF5D6] hover:text-gray-900 hover:backdrop-opacity-30 sm:border-4 sm:text-2xl">
               ENCARGA TU KOKEDAMA
             </Button>
           </Reveal>
