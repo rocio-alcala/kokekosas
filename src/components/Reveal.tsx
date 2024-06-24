@@ -17,7 +17,6 @@ export default function Reveal({
   const animateControl = useAnimation();
 
   useEffect(() => {
-    console.log(inView);
     if (inView) animateControl.start("visible");
   }, [inView, animateControl]);
 
@@ -32,7 +31,7 @@ export default function Reveal({
       initial="hidden"
       animate={animateControl}
       transition={{
-        duration: 1,
+        duration: 0.3,
         delay: 0.35,
       }}
     >
