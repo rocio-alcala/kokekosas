@@ -5,6 +5,7 @@ import KokedamaSection from "@/components/KokedamaSection";
 import NavBar from "@/components/NavBar";
 import Reveal from "@/components/Reveal";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -24,9 +25,15 @@ export default function Home() {
             <h1 className="shrink font-vidaloka text-6xl font-extrabold text-[#FFF5D6] transition-all duration-300 sm:text-8xl lg:text-9xl">
               Una pieza de arte vivo
             </h1>
-            <Button className="ml-1 mt-5 w-fit rounded-md border-[#FFF5D6] font-extrabold text-[#FFF5D6] hover:bg-[#FFF5D6] hover:text-gray-900 hover:backdrop-opacity-30 sm:border-4 sm:text-2xl">
-              ENCARGA TU KOKEDAMA
-            </Button>
+            <Link
+              href={
+                "https://wa.me/543518193522?text=Hola!%20quiero%20saber%20saber%20como%20encargar%20una%20kokedama%20"
+              }
+            >
+              <Button className="ml-1 mt-5 w-fit rounded-md border-[#FFF5D6] font-extrabold text-[#FFF5D6] hover:bg-[#FFF5D6] hover:text-gray-900 hover:backdrop-opacity-30 sm:border-4 sm:text-2xl">
+                ENCARGA TU KOKEDAMA
+              </Button>
+            </Link>
           </Reveal>
         </section>
         <section id="kokedama" className=" bg-[#FFF5D6]">
