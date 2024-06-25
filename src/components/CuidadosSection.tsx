@@ -9,7 +9,8 @@ const kokedamaCuidados = [
   {
     title: "Riego",
     texts: [
-      "El riego es esencial para mantener tus kokedamas saludables y vibrantes. Para regarlas, sumerge la kokedama completamente en un recipiente con agua a temperatura ambiente. Deja que absorba agua durante 10-15 minutos, hasta que deje de burbujear. Luego, deja que escurra el exceso de agua antes de volver a colocarla en su lugar.",
+      "El riego es esencial para mantener tus kokedamas saludables y vibrantes.",
+      "Para regarlas, sumerge la kokedama completamente en un recipiente con agua a temperatura ambiente. Deja que absorba agua durante 10-15 minutos, hasta que deje de burbujear. Luego, deja que escurra el exceso de agua antes de volver a colocarla en su lugar.",
       "La frecuencia dependerá del tipo de planta, de la ubicación de la misma y de la época del año en la que nos encontremos. Intenta siempre mantener la bola de tierra húmeda.",
     ],
     imgPath: "/kokedama-riego-4.jpg",
