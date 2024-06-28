@@ -1,4 +1,5 @@
 import Button from "@/components/Button";
+import ContactSection from "@/components/ContactSection";
 import CuidadosSection from "@/components/CuidadosSection";
 import InfiniteCarousel from "@/components/InfiniteCarousel";
 import KokedamaSection from "@/components/KokedamaSection";
@@ -12,7 +13,7 @@ export default function Home() {
   return (
     <>
       <NavBar />
-      <main className="min-h-svh animate-fadeIn">
+      <main className="min-h-svh animate-fadeIn bg-[#FFF5D6]">
         <section
           style={{
             backgroundImage: "url('/kokedama-bg.jpg')",
@@ -62,8 +63,10 @@ export default function Home() {
         </section>
         <section
           id="contacto"
-          className="h-svh animate-fadeIn bg-[#FFF5D6]"
-        ></section>
+          className="relative animate-fadeIn bg-yellow-400 p-6 md:p-20"
+        >
+          <ContactSection />
+        </section>
       </main>
     </>
   );
