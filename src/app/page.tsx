@@ -28,7 +28,7 @@ export default function Home() {
               Una pieza de arte vivo
             </h1>
             <Link href="https://wa.me/543518193522?text=Hola!%20quiero%20saber%20saber%20como%20encargar%20una%20kokedama%20">
-              <Button className="ml-1 mt-5 w-fit rounded-md border-[#FFF5D6] font-extrabold text-[#FFF5D6] hover:bg-[#FFF5D6] hover:text-gray-900 hover:backdrop-opacity-30 sm:border-4 sm:text-2xl">
+              <Button className="ml-1 mt-5 w-fit border-[#FFF5D6] font-extrabold text-[#FFF5D6] hover:bg-[#FFF5D6] hover:text-gray-900 hover:scale-105 hover:backdrop-opacity-30 sm:border-4 sm:text-2xl">
                 ENCARGA TU KOKEDAMA
               </Button>
             </Link>

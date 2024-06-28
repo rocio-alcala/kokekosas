@@ -15,10 +15,10 @@ const InputTextArea = forwardRef<
   ComponentPropsWithoutRef<"textarea"> & InputTextAreaSpecificProps
 >(({ label, errors, required, description, className, ...props }, ref) => {
   return (
-    <div className={cn("flex-col", className)}>
+    <div className={cn("w-full flex-col text-base", className)}>
       <label>
         {label && (
-          <legend className="text-grey8-dark-text py-1 font-semibold leading-6">
+          <legend className=" py-1 text-start font-semibold leading-6 text-[#FFF5D6]">
             {label}
             {required && (
               <span className="text-red-500 dark:text-red-900">*</span>
@@ -26,7 +26,7 @@ const InputTextArea = forwardRef<
           </legend>
         )}
         <textarea
-          className="placeholder:text-placeholder disabled:bg-grey2 text-primary-text-light focus:border-primary-text-light dark:focus:border-primary-text-dark h-11 min-h-72 w-full rounded-md border-2 p-3 focus:outline-none"
+          className="min-h-52 w-full rounded-md border-2 p-3 text-gray-900 placeholder:text-gray-500 focus:border-gray-500 focus:outline-none disabled:bg-gray-200"
           ref={ref}
           aria-label={label}
           {...props}
