@@ -10,9 +10,9 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 
 const variants = {
-  initial: { opacity: 0, x: 300 },
+  initial: { opacity: 0, x: 200 },
   animate: { opacity: 1, x: 0 },
-  exit: { opacity: 0, x: -300 },
+  exit: { opacity: 0, x: -200 },
 };
 
 const mockProducts = [
@@ -61,7 +61,7 @@ export default function ProductSection() {
   }
 
   return (
-    <Reveal className="flex flex-col gap-5 p-5 text-center font-manrope text-2xl text-gray-900 sm:p-12 md:p-20">
+    <Reveal className="mb-32 flex flex-col gap-5 p-5 text-center font-manrope text-2xl text-gray-900 sm:p-12 md:p-20">
       <h2 className="my-4 font-vidaloka text-5xl font-bold tracking-wide text-black md:text-7xl">
         Algunos de nuestros productos...
       </h2>
@@ -83,7 +83,7 @@ export default function ProductSection() {
       </p>
       <div className="flex items-center justify-between p-20">
         <MdOutlineArrowBackIos size={30} onClick={handlePrev} />
-        <div className="flex items-center justify-around">
+        <div className="flex w-[70%] items-center justify-around">
           <AnimatePresence initial={false} custom={direction}>
             <motion.div
               key={selectedProductIndex}
@@ -92,11 +92,8 @@ export default function ProductSection() {
               initial="initial"
               animate="animate"
               exit="exit"
-              transition={{
-                x: { bounce: 0, duration: 0.1, ease: "linear" },
-                opacity: { delay: 0.2 },
-              }}
               className="h-72"
+              transition={{ type: "tween", duration: 0.3 }}
             >
               <ProductCard {...mockProducts[selectedProductIndex]} />
             </motion.div>
