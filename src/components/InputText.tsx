@@ -19,13 +19,11 @@ const InputText = forwardRef<
         {label && (
           <legend className=" py-1 text-start font-semibold leading-6 text-[#FFF5D6]">
             {label}
-            {required && (
-              <span className="text-red-500 dark:text-red-900">*</span>
-            )}
+            {required && <span className="text-yellow-400">*</span>}
           </legend>
         )}
         <input
-          className="h-11 w-full rounded-md border-2 p-3 text-gray-900 placeholder:text-gray-500 focus:border-gray-500 focus:outline-none disabled:bg-gray-200"
+          className="h-11 w-full rounded-md border-2 p-3 text-gray-900 placeholder:text-gray-500 focus:border-yellow-400 focus:outline-none disabled:bg-gray-200"
           ref={ref}
           type="text"
           aria-label={label}

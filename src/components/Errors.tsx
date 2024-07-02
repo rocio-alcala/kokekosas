@@ -9,7 +9,7 @@ export default function Errors({ message, className }: ErrorsTypeProps) {
   return (
     <>
       {message ? (
-        <p className={cn("text-xs text-red-400 dark:text-red-500", className)}>
+        <p className={cn("text-start text-xs text-yellow-400", className)}>
           {message}
         </p>
       ) : null}
