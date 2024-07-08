@@ -51,9 +51,11 @@ export default function ContactForm() {
       });
       reset();
     } catch (e) {
+      const errorMessage =
+        e instanceof Error ? e.message : "Error al enviar el formulario";
       setModal({
         isOpen: true,
-        message: e.message || "Error al enviar el formulario",
+        message: errorMessage,
         success: false,
       });
     }
