@@ -24,16 +24,12 @@ export default function ProductCard({ name, imgPath }: ProductCardProps) {
         height={400}
         width={290}
         src={currentImgPath}
-        key={currentImgPath}
         alt={name}
       />
       <div className="absolute bottom-0 left-0 flex max-h-0 w-full flex-col items-start overflow-hidden bg-slate-500 bg-opacity-80 text-[#FFF5D6] transition-all duration-700 group-hover:max-h-32">
         <div className="p-3 font-manrope text-xl font-medium">
           {name.toUpperCase()}
         </div>
-        <Button className="mx-3 mb-3 w-fit p-2 text-slate-500 hover:bg-[#FFF5D6]">
-          CONSULTAR
-        </Button>
       </div>
     </div>
   );
