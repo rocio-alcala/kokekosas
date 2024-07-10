@@ -4,7 +4,6 @@ import ShuffleGrid from "./ShuffleGrid";
 export default function KokedamaSection() {
   return (
     <>
-      {/*       <AnimacionKokedama /> */}
       <div className="transition-basis flex flex-col items-center gap-12 bg-[#FFF5D6] p-5 font-manrope text-2xl text-gray-900 duration-500 sm:p-12 md:p-20  lg:flex-row">
         <Reveal className="flex flex-col gap-8 lg:w-[45%]">
           <h2 className="my-4 font-vidaloka text-5xl font-bold tracking-wide text-black md:text-7xl">

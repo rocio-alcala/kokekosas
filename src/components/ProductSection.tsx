@@ -20,48 +20,62 @@ const mockProducts = [
     name: "Kokedama arbol de jade",
     description: "",
     available: false,
-    imgPath: "/kokedama-jade.jpg",
+    imgPath: ["/jade-2.jpg", "/kokedama-jade.jpg"],
+  },
+  {
+    name: "Kokedama singonio",
+    description: "",
+    available: false,
+    imgPath: ["/singonio.jpg", "/singonio-2.jpg"],
   },
   {
     name: "Kokedama monstera",
     description: "",
     available: false,
-    imgPath: "/kokedama-monstera.jpg",
+    imgPath: ["/kokedama-monstera.jpg", "/monstera-2.jpg"],
   },
   {
     name: "Kokedama haworthia",
     description: "",
     available: false,
-    imgPath: "/kokedama-haworthia.jpg",
+    imgPath: ["/haworthia-2.jpg", "/kokedama-haworthia.jpg"],
   },
   {
-    name: "Kokedama hawortia",
+    name: "Kokedama peperomia",
     description: "",
     available: false,
-    imgPath: "/kokedama-haworthia.jpg",
+    imgPath: ["/peperomia.jpg", "/peperomia-2.jpg"],
+  },
+  {
+    name: "Kokedama lazo de amor",
+    description: "",
+    available: false,
+    imgPath: ["/lazo-de-amor.jpg", "/lazo-de-amor-2.jpg"],
+  },
+
+  {
+    name: "Kokedama singonio rosado",
+    description: "",
+    available: false,
+    imgPath: ["/singonio-rosa.jpg", "/singonio-rosa-2.jpg"],
+  },
+  {
+    name: "Kokedama calathea",
+    description: "",
+    available: false,
+    imgPath: ["/calathea.jpg", "/calathea-2.jpg"],
+  },
+  {
+    name: "Kokedama rubra",
+    description: "",
+    available: false,
+    imgPath: ["/rubra.jpg", "/rubra-2.jpg"],
   },
 ];
 
 export default function ProductSection() {
-  const [selectedProductIndex, setSelectedProductIndex] = useState(1);
-  const [direction, setDirection] = useState(0);
-
-  function handlePrev() {
-    setDirection(-1);
-    setSelectedProductIndex((prevIndex) =>
-      prevIndex === 0 ? mockProducts.length - 1 : prevIndex - 1,
-    );
-  }
-
-  function handleNext() {
-    setDirection(1);
-    setSelectedProductIndex((prevIndex) =>
-      prevIndex === mockProducts.length - 1 ? 0 : prevIndex + 1,
-    );
-  }
-
   return (
-    <Reveal className="mb-32 flex flex-col gap-5 p-5 text-center font-manrope text-2xl text-gray-900 sm:p-12 md:p-20">
+    <Reveal className="mb-60 flex flex-col gap-5 p-5 text-center font-manrope text-2xl text-gray-900 sm:p-12 md:mb-44 md:p-20">
       <h2 className="my-4 font-vidaloka text-5xl font-bold tracking-wide text-black md:text-7xl">
         Algunos de nuestros productos...
       </h2>
@@ -81,25 +95,10 @@ export default function ProductSection() {
           ponte en contacto.
         </a>
       </p>
-      <div className="flex items-center justify-between p-20">
-        <MdOutlineArrowBackIos size={30} onClick={handlePrev} />
-        <div className="flex w-[70%] items-center justify-around">
-          <AnimatePresence initial={false} custom={direction}>
-            <motion.div
-              key={selectedProductIndex}
-              custom={direction}
-              variants={variants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              className="h-72"
-              transition={{ type: "tween", duration: 0.3 }}
-            >
-              <ProductCard {...mockProducts[selectedProductIndex]} />
-            </motion.div>
-          </AnimatePresence>
-        </div>
-        <MdOutlineArrowForwardIos size={30} onClick={handleNext} />
+      <div className="mt-10 flex flex-wrap items-center justify-center md:justify-around lg:p-10">
+        {mockProducts.map((product) => (
+          <ProductCard {...product} key={product.name} />
+        ))}
       </div>
     </Reveal>
   );

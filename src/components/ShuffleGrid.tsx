@@ -21,7 +21,7 @@ const kokedamaArray = [
   { imgPath: "/kokedama-wall.jpg", id: 10 },
   { imgPath: "/kokedama-hang-3.jpg", id: 11 },
   { imgPath: "/kokedama-home-10.jpg", id: 12 },
-  { imgPath: "/kokedama-deco-7.jpg", id: 13 },
+  { imgPath: "/kokedama-deco-8.jpg", id: 13 },
   { imgPath: "/kokedama-home-7.jpg", id: 14 },
   { imgPath: "/kokedama-home-4.jpg", id: 15 },
   { imgPath: "/kokedama-home-5.jpg", id: 16 },

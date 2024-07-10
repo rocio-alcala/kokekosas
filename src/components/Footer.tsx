@@ -5,7 +5,7 @@ import { ImFacebook2 } from "react-icons/im";
 
 export default function Footer() {
   return (
-    <footer className="flex animate-fadeIn flex-wrap items-start justify-between gap-5 bg-black p-10 font-manrope text-[#FFF5D6] md:px-16">
+    <footer className="flex animate-fadeIn flex-wrap items-start justify-between gap-5 bg-black p-6 font-manrope text-[#FFF5D6] md:p-10 md:px-16">
       <p className="p-5">
         Copyright 2024{" "}
         <span className="underline">

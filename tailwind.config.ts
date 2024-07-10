@@ -32,6 +32,10 @@ const config: Config = {
           "0%": { opacity: "0", transform: "translateY(10px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        fadeInTop: {
+          "0%": { opacity: "0", transform: "translateY(-20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
 
         blur: { to: { "backdrop-filter": "blur(10px)" } },
         sink: {
@@ -70,6 +74,7 @@ const config: Config = {
         "slow-sink": "sink 3s ease-in-out infinite",
         fadeSliceIn: "fadeSliceIn 2s ease",
         fadeIn: "fade-in 1s ease",
+        fadeInTop: "fadeInTop 1s ease",
       },
       transitionProperty: {
         h: "height",

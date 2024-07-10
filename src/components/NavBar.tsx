@@ -33,7 +33,7 @@ export default function NavBar() {
           if (entrie.isIntersecting) setActiveSection(entrie.target.id);
         });
       },
-      { threshold: 0.4 },
+      { threshold: 0.3 },
     );
     sections.forEach((section) => sectionsObserver.observe(section));
 
@@ -63,7 +63,7 @@ export default function NavBar() {
         )}
       ></div>
       {/* navbar-desktop */}
-      <nav className="fixed left-0 top-0 z-[1000] animate-fadeIn flex h-14 w-full justify-end bg-transparent p-3 px-10 text-white">
+      <nav className=" animate-fadeInTop fixed left-0 top-0 z-[1000] flex h-14 w-full justify-end bg-transparent p-3 px-10 text-white">
         <ul className="flex gap-12">
           {NavBarItems.map((navBarItem) => (
             <NavBarItem
