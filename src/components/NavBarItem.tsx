@@ -27,7 +27,7 @@ export default function NavBarItem({
       {Icon && (
         <Icon
           size={35}
-          className="transition-* text-white duration-300 group-hover:rotate-6 group-hover:scale-110"
+          className="transition-* text-[#FFF5D6] duration-300 group-hover:rotate-6 group-hover:scale-110"
         />
       )}
       {children}

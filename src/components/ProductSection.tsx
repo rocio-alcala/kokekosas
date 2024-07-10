@@ -38,7 +38,7 @@ const mockProducts = [
     name: "Kokedama haworthia",
     description: "",
     available: false,
-    imgPath: ["/haworthia.jpg", "/haworthia-2.jpg"],
+    imgPath: ["/haworthia-2.jpg", "/kokedama-haworthia.jpg"],
   },
   {
     name: "Kokedama peperomia",
