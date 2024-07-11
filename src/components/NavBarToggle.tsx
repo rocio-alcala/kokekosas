@@ -1,14 +1,25 @@
-import { IoMdClose, IoMdMenu } from "react-icons/io";
 import { AnimatePresence, motion } from "framer-motion";
-import { Dispatch, SetStateAction } from "react";
+import { IconType } from "react-icons";
+
+interface NavBarToggleProps {
+  isOpen: boolean;
+  CloseIcon: IconType;
+  OpenIcon: IconType;
+  onClickClose?: () => void;
+  onClickOpen?: () => void;
+  iconClassName: string;
+  iconSize: number;
+}
 
 export default function NavBarToggle({
-  isMenuOpen,
-  setIsMenuOpen,
-}: {
-  isMenuOpen: boolean;
-  setIsMenuOpen: Dispatch<SetStateAction<boolean>>;
-}) {
+  isOpen,
+  CloseIcon,
+  OpenIcon,
+  onClickClose,
+  onClickOpen,
+  iconClassName,
+  iconSize,
+}: NavBarToggleProps) {
   const variants = {
     hidden: { opacity: 0, rotate: 90 },
     visible: { opacity: 1, rotate: 0 },
@@ -16,8 +27,8 @@ export default function NavBarToggle({
   };
 
   return (
-    <>
-      {isMenuOpen ? (
+    <div className="flex h-8 w-8 items-center justify-center">
+      {isOpen ? (
         <AnimatePresence>
           <motion.div
             key="close"
@@ -30,10 +41,10 @@ export default function NavBarToggle({
             }}
             className="absolute"
           >
-            <IoMdClose
-              className="fill-slate-100"
-              size={25}
-              onClick={() => setIsMenuOpen(false)}
+            <CloseIcon
+              className={iconClassName}
+              size={iconSize}
+              onClick={onClickClose}
             />
           </motion.div>
         </AnimatePresence>
@@ -50,14 +61,14 @@ export default function NavBarToggle({
             }}
             className="absolute"
           >
-            <IoMdMenu
-              className="fill-slate-100"
-              size={25}
-              onClick={() => setIsMenuOpen(true)}
+            <OpenIcon
+              className={iconClassName}
+              size={iconSize}
+              onClick={onClickOpen}
             />
           </motion.div>
         </AnimatePresence>
       )}
-    </>
+    </div>
   );
 }

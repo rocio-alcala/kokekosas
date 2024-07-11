@@ -54,7 +54,11 @@ export default function CuidadosSection() {
             key={cuidado.title}
             {...cuidado}
             isActive={activeSection === cuidado.title}
-            onClick={() => setActiveSection(cuidado.title)}
+            onClick={() => {
+              if (activeSection === cuidado.title) {
+                setActiveSection("");
+              } else setActiveSection(cuidado.title);
+            }}
           />
         ))}
       </div>
