@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import NavBarItem from "./NavBarItem";
 import { PiPottedPlantFill } from "react-icons/pi";
 import { cn } from "@/helpers";
+import { IoMdClose, IoMdMenu } from "react-icons/io";
 
 import NavBarToggle from "./NavBarToggle";
 
@@ -86,7 +87,15 @@ export default function NavBar() {
         <div
           className={`fixed left-0 top-0 flex h-14 w-full animate-fadeInTop items-center justify-end bg-transparent pr-6 md:hidden`}
         >
-          <NavBarToggle isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+          <NavBarToggle
+            isOpen={isMenuOpen}
+            onClickClose={() => setIsMenuOpen(false)}
+            onClickOpen={() => setIsMenuOpen(true)}
+            CloseIcon={IoMdClose}
+            OpenIcon={IoMdMenu}
+            iconSize={25}
+            iconClassName="fill-[#FFF5D6]"
+          />
         </div>
         <div
           className={cn(
@@ -94,7 +103,7 @@ export default function NavBar() {
             isMenuOpen && "h-svh",
           )}
         >
-          <ul className="flex flex-col items-center justify-center gap-3 pr-6 pt-14">
+          <ul className="flex h-full flex-col items-center justify-center gap-3 px-6 py-14">
             {NavBarItems.map((navBarItem) => (
               <NavBarItem
                 key={navBarItem.name}

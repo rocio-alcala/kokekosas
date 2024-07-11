@@ -2,12 +2,14 @@ import Image from "next/image";
 import React from "react";
 import { cn } from "@/helpers";
 import Reveal from "./Reveal";
+import NavBarToggle from "./NavBarToggle";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 interface CuidadosCardProps {
   title: string;
   texts: string[];
   imgPath: string;
-  isActive?: boolean;
+  isActive: boolean;
   onClick: () => void;
 }
 
@@ -20,14 +22,22 @@ export default function CuidadosCard({
 }: CuidadosCardProps) {
   return (
     <Reveal
-      onClick={onClick}
       className={cn(
         "group h-fit w-[95%] rounded-3xl bg-[#FFF5D6] px-7 py-3 text-2xl text-gray-900 shadow-xl  hover:cursor-pointer md:w-[85%]",
       )}
     >
-      <h3 className="text-center font-vidaloka text-2xl font-bold tracking-widest md:text-4xl">
-        {title.toUpperCase()}
-      </h3>
+      <div onClick={onClick} className="flex items-center justify-center gap-3">
+        <h3 className="text-center font-vidaloka text-2xl font-bold tracking-widest md:text-4xl">
+          {title.toUpperCase()}{" "}
+        </h3>{" "}
+        <NavBarToggle
+          isOpen={isActive}
+          CloseIcon={IoIosArrowUp}
+          OpenIcon={IoIosArrowDown}
+          iconSize={30}
+          iconClassName="fill-gray-900"
+        />
+      </div>
       <div
         className={cn(
           "grid grid-rows-[0fr] transition-all duration-1000",
@@ -49,7 +59,7 @@ export default function CuidadosCard({
           <svg
             viewBox="0 0 200 200"
             xmlns="http://www.w3.org/2000/svg"
-            className="min-w-96 max-w-[400px]"
+            className=" min-w-72 max-w-[400px]"
           >
             <defs>
               <pattern
