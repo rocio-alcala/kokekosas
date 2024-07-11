@@ -33,7 +33,7 @@ export default function NavBarItem({
       {children}
       <div
         className={cn(
-          "absolute bottom-[-2px] right-0 h-0 items-center overflow-hidden text-clip  text-center font-mulish text-xl font-bold text-[#FFF5D6] duration-300 group-hover:h-full",
+          "absolute bottom-0 right-0 h-0 items-center overflow-hidden text-clip  text-center font-mulish text-xl font-bold text-[#FFF5D6] duration-300 group-hover:h-full",
           isActive && "text-yellow-400",
           isScroll && "bg-black",
         )}

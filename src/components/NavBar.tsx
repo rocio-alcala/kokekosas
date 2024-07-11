@@ -5,6 +5,8 @@ import NavBarItem from "./NavBarItem";
 import { PiPottedPlantFill } from "react-icons/pi";
 import { cn } from "@/helpers";
 
+import NavBarToggle from "./NavBarToggle";
+
 const NavBarItems = [
   { name: "kokedama", icon: PiPottedPlantFill },
   { name: "cuidados", icon: PiPottedPlantFill },
@@ -20,6 +22,7 @@ export default function NavBar() {
 
   const [activeSection, setActiveSection] = useState("home");
   const [isScroll, setIsScroll] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     // check initial state of scroll to style NavBar
@@ -62,20 +65,51 @@ export default function NavBar() {
           isScroll && "top-0 opacity-100",
         )}
       ></div>
-      {/* navbar-desktop */}
-      <nav className=" animate-fadeInTop fixed left-0 top-0 z-[1000] flex h-14 w-full justify-end bg-transparent p-3 px-10 text-white">
-        <ul className="flex gap-12">
-          {NavBarItems.map((navBarItem) => (
-            <NavBarItem
-              key={navBarItem.name}
-              onClick={() => scrollOnClick(navBarItem.name)}
-              isActive={activeSection === navBarItem.name}
-              isScroll={isScroll}
-            >
-              {navBarItem.name.toUpperCase()}
-            </NavBarItem>
-          ))}
-        </ul>
+
+      <nav className="fixed left-0 top-0 z-[1000] h-14 bg-transparent">
+        {/* navbar-desktop */}
+        <div className="fixed left-0 top-0 hidden w-full animate-fadeInTop justify-end bg-transparent  p-3 px-10 text-white opacity-0 md:flex md:opacity-100">
+          <ul className="flex gap-12">
+            {NavBarItems.map((navBarItem) => (
+              <NavBarItem
+                key={navBarItem.name}
+                onClick={() => scrollOnClick(navBarItem.name)}
+                isActive={activeSection === navBarItem.name}
+                isScroll={isScroll}
+              >
+                {navBarItem.name.toUpperCase()}
+              </NavBarItem>
+            ))}
+          </ul>
+        </div>
+        {/* navbar-mobile */}
+        <div
+          className={`fixed left-0 top-0 flex h-14 w-full animate-fadeInTop items-center justify-end bg-transparent pr-6 md:hidden`}
+        >
+          <NavBarToggle isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+        </div>
+        <div
+          className={cn(
+            "fixed z-[-100] flex h-0 w-full flex-col overflow-hidden bg-black md:hidden",
+            isMenuOpen && "h-svh",
+          )}
+        >
+          <ul className="flex flex-col items-center justify-center gap-3 pr-6 pt-14">
+            {NavBarItems.map((navBarItem) => (
+              <NavBarItem
+                key={navBarItem.name}
+                onClick={() => {
+                  scrollOnClick(navBarItem.name);
+                  setIsMenuOpen(false);
+                }}
+                isActive={activeSection === navBarItem.name}
+                isScroll={true}
+              >
+                {navBarItem.name.toUpperCase()}
+              </NavBarItem>
+            ))}
+          </ul>
+        </div>
       </nav>
     </>
   );
