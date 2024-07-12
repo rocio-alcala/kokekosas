@@ -1,74 +1,77 @@
-"use client";
-
-import { useState } from "react";
-import ProductCard from "./ProductCard";
+import ProductCard, { Tag } from "./ProductCard";
 import Reveal from "./Reveal";
-import {
-  MdOutlineArrowBackIos,
-  MdOutlineArrowForwardIos,
-} from "react-icons/md";
-import { motion, AnimatePresence } from "framer-motion";
 
-const variants = {
-  initial: { opacity: 0, x: 200 },
-  animate: { opacity: 1, x: 0 },
-  exit: { opacity: 0, x: -200 },
-};
+export interface Product {
+  name: string;
+  description: string;
+  id: number;
+  tag: Tag;
+  imgPath: string[];
+}
 
-const mockProducts = [
+const mockProducts: Product[] = [
   {
     name: "Kokedama arbol de jade",
+    id: 1,
     description: "",
-    available: false,
+    tag: "por encargo",
     imgPath: ["/jade-2.jpg", "/kokedama-jade.jpg"],
   },
   {
     name: "Kokedama singonio",
+    id: 2,
     description: "",
-    available: false,
+    tag: "no disponible",
     imgPath: ["/singonio.jpg", "/singonio-2.jpg"],
   },
   {
     name: "Kokedama monstera",
+    id: 3,
     description: "",
-    available: false,
+    tag: "por encargo",
     imgPath: ["/kokedama-monstera.jpg", "/monstera-2.jpg"],
   },
   {
     name: "Kokedama haworthia",
+    id: 4,
     description: "",
-    available: false,
+    tag: "disponible",
     imgPath: ["/haworthia-2.jpg", "/kokedama-haworthia.jpg"],
   },
   {
     name: "Kokedama peperomia",
+    id: 5,
     description: "",
-    available: false,
+    tag: "por encargo",
     imgPath: ["/peperomia.jpg", "/peperomia-2.jpg"],
   },
   {
     name: "Kokedama lazo de amor",
+    id: 6,
     description: "",
-    available: false,
+    tag: "por encargo",
     imgPath: ["/lazo-de-amor.jpg", "/lazo-de-amor-2.jpg"],
   },
 
   {
     name: "Kokedama singonio rosado",
+    id: 7,
     description: "",
-    available: false,
+    tag: "por encargo",
     imgPath: ["/singonio-rosa.jpg", "/singonio-rosa-2.jpg"],
   },
   {
     name: "Kokedama calathea",
+    id: 8,
     description: "",
-    available: false,
+    tag: "no disponible",
     imgPath: ["/calathea.jpg", "/calathea-2.jpg"],
   },
   {
     name: "Kokedama rubra",
+    id: 9,
     description: "",
-    available: false,
+    tag: "por encargo",
     imgPath: ["/rubra.jpg", "/rubra-2.jpg"],
   },
 ];
@@ -83,8 +86,12 @@ export default function ProductSection() {
         Recuerda que nuestras kokedamas son hechas a mano y cada una es una{" "}
         <span className="font-bold">pieza unica</span>, por lo cual se realizan
         por encargo y es posible que tenga diferencias y variaciones de color,
-        textura y medidas con relación a las fotos de la web.
+        textura, medidas, con relación a las fotos de la web.{" "}
       </p>
+      <span className="font-bold">
+        La disponibilidad y precio de cada producto puede variar, es por eso que
+        debera consultar el momento de realizar el encargo.
+      </span>
       <p>
         Si deseas un Kokedama de otro tipo, regalos personalizados, proyectos de
         paisajismo, souvenirs:{" "}
