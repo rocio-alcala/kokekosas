@@ -6,8 +6,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { cn } from "@/helpers";
 import { IoAddCircle } from "react-icons/io5";
-import { useCartContext } from "./CartContextProvider";
-import { Product } from "./ProductSection";
 
 export type Tag = "por encargo" | "disponible" | "no disponible";
 
@@ -20,7 +18,7 @@ interface ProductCardProps {
   tag: Tag;
 }
 
-export function addProduct(id: Product["id"], name: Product["name"]) {
+/* export function addProduct(id: Product["id"], name: Product["name"]) {
   const productIndex = cart.findIndex((product) => product.productId === id);
   if (productIndex !== -1) {
     const newCart = cart.map((product) => {
@@ -33,7 +31,7 @@ export function addProduct(id: Product["id"], name: Product["name"]) {
     setCart([...cart, { name: name, productId: id, quantity: 1 }]);
   }
 }
-
+ */
 export default function ProductCard({
   name,
   imgPath,
@@ -45,7 +43,7 @@ export default function ProductCard({
     .split(" ")
     .join("%20");
 
-  const { cart, setCart } = useCartContext();
+  /*   const { cart, setCart } = useCartContext(); */
 
   return (
     <div
@@ -80,7 +78,6 @@ export default function ProductCard({
               tag !== "disponible" &&
                 "cursor-not-allowed fill-gray-400 hover:scale-100",
             )}
-            onClick={() => addProduct(id, name)}
           />
         </div>
       </div>
