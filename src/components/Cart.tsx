@@ -40,7 +40,7 @@ export default function Cart() {
         />
         <h2 className="mb-6 text-xl font-bold ">Tu carrito</h2>
         {cart.length === 0 ? (
-          <p className="h-20 p-6 text-center ">
+          <p className="h-20 whitespace-normal p-6 text-center">
             Todavia no agregaste nada a tu carrito
           </p>
         ) : (
