@@ -7,6 +7,8 @@ import { cn } from "@/helpers";
 import { IoMdClose, IoMdMenu } from "react-icons/io";
 
 import NavBarToggle from "./NavBarToggle";
+import { FaShoppingCart } from "react-icons/fa";
+import Cart from "./Cart";
 
 const NavBarItems = [
   { name: "kokedama", icon: PiPottedPlantFill },
@@ -70,7 +72,7 @@ export default function NavBar() {
       <nav className="fixed left-0 top-0 z-[1000] h-14 bg-transparent">
         {/* navbar-desktop */}
         <div className="fixed left-0 top-0 hidden w-full animate-fadeInTop justify-end bg-transparent  p-3 px-10 text-white opacity-0 md:flex md:opacity-100">
-          <ul className="flex gap-12">
+          <ul className="flex items-center gap-12">
             {NavBarItems.map((navBarItem) => (
               <NavBarItem
                 key={navBarItem.name}
@@ -81,6 +83,7 @@ export default function NavBar() {
                 {navBarItem.name.toUpperCase()}
               </NavBarItem>
             ))}
+            <Cart />
           </ul>
         </div>
         {/* navbar-mobile */}
@@ -117,6 +120,7 @@ export default function NavBar() {
                 {navBarItem.name.toUpperCase()}
               </NavBarItem>
             ))}
+            <Cart />
           </ul>
         </div>
       </nav>
