@@ -72,9 +72,9 @@ export default function NavBar() {
         )}
       ></div>
 
-      <nav className="fixed left-0 top-0 z-[1000] flex h-14 w-full items-center justify-between bg-transparent px-4 md:justify-end">
+      <nav className="fixed left-0 top-0 z-[1000] flex h-14 w-full animate-fadeInTop items-center justify-between bg-transparent px-4 md:justify-end">
         {/* navbar-desktop */}
-        <ul className="hidden w-full animate-fadeInTop items-center justify-end gap-12 bg-transparent p-3 px-10 text-white opacity-0 md:flex md:opacity-100">
+        <ul className="hidden w-full items-center justify-end gap-12 bg-transparent p-3 px-10 text-white opacity-0 md:flex md:opacity-100">
           {NavBarItems.map((navBarItem) => (
             <NavBarItem
               key={navBarItem.name}
@@ -88,7 +88,7 @@ export default function NavBar() {
         </ul>
         {/* navbar-toggle */}
         <div
-          className={`flex h-14 w-fit animate-fadeInTop items-center bg-transparent pr-6 md:hidden`}
+          className={`flex h-14 w-fit items-center bg-transparent pr-6 md:hidden`}
         >
           <NavBarToggle
             isOpen={isMenuOpen}
