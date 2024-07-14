@@ -27,7 +27,7 @@ export default function NavBarToggle({
   };
 
   return (
-    <div className="flex h-8 w-8 items-center justify-center">
+    <div className="flex h-8 w-8 cursor-pointer items-center justify-center">
       {isOpen ? (
         <AnimatePresence>
           <motion.div
