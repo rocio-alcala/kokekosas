@@ -8,8 +8,8 @@ import {
   poppins,
   vidaloka,
 } from "@/assets/fonts";
-import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import CartContextProvider from "@/components/CartContextProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,7 +28,7 @@ export default function RootLayout({
       <body
         className={`${vidaloka.variable} ${mulish.variable}  ${manrope.variable} ${poppins.variable} ${inconsolata.variable} font-inconsolata`}
       >
-        {children}
+        <CartContextProvider>{children}</CartContextProvider>
         <Footer />
       </body>
     </html>

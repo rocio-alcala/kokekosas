@@ -49,7 +49,7 @@ const mockProducts: Product[] = [
     name: "Kokedama lazo de amor",
     id: 6,
     description: "",
-    tag: "por encargo",
+    tag: "disponible",
     imgPath: ["/lazo-de-amor.jpg", "/lazo-de-amor-2.jpg"],
   },
 
@@ -57,7 +57,7 @@ const mockProducts: Product[] = [
     name: "Kokedama singonio rosado",
     id: 7,
     description: "",
-    tag: "por encargo",
+    tag: "disponible",
     imgPath: ["/singonio-rosa.jpg", "/singonio-rosa-2.jpg"],
   },
   {
