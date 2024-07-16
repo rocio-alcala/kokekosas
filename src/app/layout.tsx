@@ -11,8 +11,6 @@ import {
 import Footer from "@/components/Footer";
 import CartContextProvider from "@/components/CartContextProvider";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
   title: "Kokekosas",
   description: "Kokedamas de autor",
