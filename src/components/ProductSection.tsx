@@ -1,10 +1,9 @@
-import getProducts from "@/services/getProducts";
-import ProductCard from "./ProductCard";
+import { Suspense } from "react";
 import Reveal from "./Reveal";
+import ProductCardSkeleton from "./ProductsSkeleton";
+import Products from "./Products";
 
 export default async function ProductSection() {
-  const products = await getProducts();
-
   return (
     <Reveal className="mb-60 flex flex-col gap-5 p-5 text-center font-manrope text-2xl text-gray-900 sm:p-12 md:mb-44 md:p-20">
       <h2 className="my-4 font-vidaloka text-5xl font-bold tracking-wide text-black md:text-7xl">
@@ -30,11 +29,9 @@ export default async function ProductSection() {
           ponte en contacto.
         </a>
       </p>
-      <div className="mt-10 flex flex-wrap items-center justify-center md:justify-around lg:p-10">
-        {products.map((product) => (
-          <ProductCard {...product} key={product.name} />
-        ))}
-      </div>
+      <Suspense fallback={<ProductCardSkeleton />}>
+        <Products />
+      </Suspense>
     </Reveal>
   );
 }

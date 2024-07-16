@@ -79,6 +79,6 @@ export default function getProducts(): Promise<Product[]> {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(mockProducts);
-    }, 4000);
+    }, 2000);
   });
 }
