@@ -7,31 +7,15 @@ import Link from "next/link";
 import { cn } from "@/helpers";
 import { IoAddCircle } from "react-icons/io5";
 import { useCartContext } from "./CartContextProvider";
-import { Product } from "./ProductSection";
+import { Product } from "@/services/getProducts";
 
-export type Tag = "por encargo" | "disponible" | "no disponible";
-
-interface ProductCardProps {
-  name: string;
-  description: string;
-  imgPath: string[];
-  price?: number;
-  id: number;
-  tag: Tag;
-}
-
-export default function ProductCard({
-  name,
-  imgPath,
-  tag,
-  id,
-}: ProductCardProps) {
+export default function ProductCard({ name, imgPath, tag, id }: Product) {
   const [currentImgPath, setCurrentImgPath] = useState(imgPath[0]);
   const whatsAppMessage = `Hola quiero consultar para encargarte una ${name}`
     .split(" ")
     .join("%20");
 
-  const { cart, setCart, addProduct } = useCartContext();
+  const { addProduct } = useCartContext();
 
   return (
     <div
