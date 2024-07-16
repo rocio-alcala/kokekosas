@@ -1,5 +1,6 @@
 "use client";
 
+import { Product } from "@/services/getProducts";
 import {
   Dispatch,
   ReactNode,
@@ -8,7 +9,6 @@ import {
   useContext,
   useState,
 } from "react";
-import { Product } from "./ProductSection";
 
 export interface CartProduct {
   id: number;
@@ -20,7 +20,7 @@ interface CartContext {
   setCart: Dispatch<SetStateAction<[] | CartProduct[]>>;
   cart: CartProduct[];
   addProduct: (id: Product["id"], name: Product["name"]) => void;
-  removeProduct: (id: Product["id"]) => void
+  removeProduct: (id: Product["id"]) => void;
 }
 
 export const CartContext = createContext<CartContext | null>(null);
