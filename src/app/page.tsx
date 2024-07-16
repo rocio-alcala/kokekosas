@@ -58,7 +58,10 @@ export default function Home() {
           width={1000}
           className="w-full animate-fadeIn"
         />
-        <section id="productos" className="animate-fadeIn bg-[#FFF5D6]">
+        <section
+          id="productos"
+          className="flex min-h-32 animate-fadeIn items-center justify-center bg-[#FFF5D6]"
+        >
           <ProductSection />
         </section>
         <div className="relative animate-fadeIn bg-yellow-400 p-6 md:p-20">

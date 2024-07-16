@@ -27,7 +27,7 @@ export default function InfiniteCarousel() {
   ];
 
   return (
-    <div className="animate-fadeIn group flex overflow-hidden hover:animate-none">
+    <div className="group flex overflow-hidden hover:animate-none">
       <div className="group-hover:pauseAnimation flex animate-infiniteScroll flex-nowrap bg-black">
         {carouselText.map((text, index) => (
           <span

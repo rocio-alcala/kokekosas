@@ -42,7 +42,7 @@ export default function NavBar() {
           if (entrie.isIntersecting) setActiveSection(entrie.target.id);
         });
       },
-      { threshold: 0.3 },
+      { threshold: 0.2 },
     );
     sections.forEach((section) => sectionsObserver.observe(section));
 
