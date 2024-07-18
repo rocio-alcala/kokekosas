@@ -3,7 +3,6 @@ import ContactSection from "@/components/ContactSection";
 import CuidadosSection from "@/components/CuidadosSection";
 import InfiniteCarousel from "@/components/InfiniteCarousel";
 import KokedamaSection from "@/components/KokedamaSection";
-import NavBar from "@/components/NavBar";
 import ProductSection from "@/components/ProductSection";
 import Reveal from "@/components/Reveal";
 import Image from "next/image";
@@ -12,7 +11,6 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-      <NavBar />
       <main className="min-h-svh animate-fadeIn bg-[#FFF5D6]">
         <section
           style={{
