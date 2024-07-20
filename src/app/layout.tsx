@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import {
   inconsolata,
@@ -10,6 +9,7 @@ import {
 } from "@/assets/fonts";
 import Footer from "@/components/Footer";
 import CartContextProvider from "@/components/CartContextProvider";
+import NavBar from "@/components/NavBar";
 
 export const metadata: Metadata = {
   title: "Kokekosas",
@@ -26,7 +26,10 @@ export default function RootLayout({
       <body
         className={`${vidaloka.variable} ${mulish.variable}  ${manrope.variable} ${poppins.variable} ${inconsolata.variable} font-inconsolata`}
       >
-        <CartContextProvider>{children}</CartContextProvider>
+        <CartContextProvider>
+          <NavBar />
+          {children}
+        </CartContextProvider>
         <Footer />
       </body>
     </html>

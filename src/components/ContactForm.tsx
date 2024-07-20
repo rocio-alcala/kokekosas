@@ -107,7 +107,11 @@ export default function ContactForm() {
             })}
             errors={errors.email?.message}
           />
-          <Button type="submit" isLoading={isSubmitting} className="mt-4">
+          <Button
+            type="submit"
+            isLoading={isSubmitting}
+            className="relative z-10 mt-4 bg-transparent before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-0 before:rounded before:bg-yellow-500 before:transition-all before:duration-1000 before:content-[''] hover:before:w-full"
+          >
             ENVIAR
           </Button>
         </div>
