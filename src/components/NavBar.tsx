@@ -168,6 +168,14 @@ export default function NavBar() {
           <CartSummary />
         )}
       </div>
+      {/* layout to disable bg while cart open*/}
+      <div
+        className={cn(
+          "fixed z-[1050] hidden h-full w-full bg-black/50",
+          isCartOpen && "block",
+        )}
+        onClick={() => setIsCartOpen(false)}
+      ></div>
     </>
   );
 }
