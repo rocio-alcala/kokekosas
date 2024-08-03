@@ -116,7 +116,13 @@ export default function NavBar() {
           />
         </div>
         {/* navbar icon carrito */}
-        <Cart isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />
+        <Cart
+          isCartOpen={isCartOpen}
+          onClick={() => {
+            setIsCartOpen(true);
+            setIsMenuOpen(false);
+          }}
+        />
         {/* navbar-mobile */}
       </nav>
       <div
