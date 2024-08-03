@@ -4,10 +4,10 @@ import { Dispatch, SetStateAction } from "react";
 
 interface CartProps {
   isCartOpen: boolean;
-  setIsCartOpen: Dispatch<SetStateAction<boolean>>;
+  onClick: () => void;
 }
 
-export default function Cart({ isCartOpen, setIsCartOpen }: CartProps) {
+export default function Cart({ isCartOpen, onClick }: CartProps) {
   const { cart } = useCartContext();
 
   const totalProductsNumber = cart.reduce(
@@ -21,7 +21,7 @@ export default function Cart({ isCartOpen, setIsCartOpen }: CartProps) {
         <FaShoppingCart
           size={25}
           className="fill-[#FFF5D6]"
-          onClick={() => setIsCartOpen(!isCartOpen)}
+          onClick={onClick}
         />
         {totalProductsNumber !== 0 && (
           <span className="absolute -bottom-2 -right-1 h-4 w-4 animate-fadeInTop overflow-hidden rounded-full bg-yellow-500 text-center text-xs font-bold text-black">

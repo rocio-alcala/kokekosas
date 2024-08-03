@@ -62,6 +62,21 @@ export default function NavBar() {
     };
   }, []);
 
+  useEffect(() => {
+    const originalOverflow = document.body.style.overflow;
+    // hide overflow (scroll bar on menu or cart open)
+    if (isMenuOpen || isCartOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = originalOverflow;
+    }
+
+    // restore original overflow on unmount
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [isMenuOpen, isCartOpen]);
+
   return (
     <>
       {/* background on scroll div */}
@@ -101,7 +116,13 @@ export default function NavBar() {
           />
         </div>
         {/* navbar icon carrito */}
-        <Cart isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />
+        <Cart
+          isCartOpen={isCartOpen}
+          onClick={() => {
+            setIsCartOpen(true);
+            setIsMenuOpen(false);
+          }}
+        />
         {/* navbar-mobile */}
       </nav>
       <div
@@ -147,6 +168,14 @@ export default function NavBar() {
           <CartSummary />
         )}
       </div>
+      {/* layout to disable bg while cart open*/}
+      <div
+        className={cn(
+          "fixed z-[1050] hidden h-full w-full bg-black/50",
+          isCartOpen && "block",
+        )}
+        onClick={() => setIsCartOpen(false)}
+      ></div>
     </>
   );
 }
