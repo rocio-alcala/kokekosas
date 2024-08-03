@@ -62,6 +62,21 @@ export default function NavBar() {
     };
   }, []);
 
+  useEffect(() => {
+    const originalOverflow = document.body.style.overflow;
+    // hide overflow (scroll bar on menu or cart open)
+    if (isMenuOpen || isCartOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = originalOverflow;
+    }
+
+    // restore original overflow on unmount
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [isMenuOpen, isCartOpen]);
+
   return (
     <>
       {/* background on scroll div */}
