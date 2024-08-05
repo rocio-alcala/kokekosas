@@ -13,7 +13,7 @@ const mockProducts: Product[] = [
     name: "Kokedama arbol de jade",
     id: 1,
     description: "",
-    tag: "por encargo",
+    tag: "disponible",
     imgPath: ["/jade-2.jpg", "/kokedama-jade.jpg"],
   },
   {
@@ -72,6 +72,20 @@ const mockProducts: Product[] = [
     description: "",
     tag: "por encargo",
     imgPath: ["/rubra.jpg", "/rubra-2.jpg"],
+  },
+  {
+    name: "Kokedama asplenium",
+    id: 10,
+    description: "",
+    tag: "disponible",
+    imgPath: ["/asplenium-2.jpg", "/asplenium.jpg"],
+  },
+  {
+    name: "Kokedama palo de agua",
+    id: 11,
+    description: "",
+    tag: "disponible",
+    imgPath: ["/palo-de-agua.jpg", "/palo-de-agua.jpg"],
   },
 ];
 
