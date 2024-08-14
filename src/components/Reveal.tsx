@@ -31,8 +31,8 @@ export default function Reveal({
       initial="hidden"
       animate={animateControl}
       transition={{
-        duration: 0.3,
-        delay: 0.35,
+        duration: 0.2,
+        delay: 0.2,
       }}
     >
       {children}

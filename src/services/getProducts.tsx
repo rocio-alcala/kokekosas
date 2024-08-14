@@ -87,6 +87,13 @@ const mockProducts: Product[] = [
     tag: "disponible",
     imgPath: ["/palo-de-agua.jpg", "/palo-de-agua.jpg"],
   },
+  {
+    name: "Kokedamas souvenirs",
+    id: 12,
+    description: "",
+    tag: "por encargo",
+    imgPath: ["/souvenirs-2.jpg", "/souvenirs.jpg"],
+  },
 ];
 
 export default function getProducts(): Promise<Product[]> {
