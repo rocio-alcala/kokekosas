@@ -8,6 +8,12 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(...inputs));
 }
 
+export function isInLocalStorage(key: string) {
+  const cartLocalStorage = localStorage.getItem(key);
+  return cartLocalStorage ? JSON.parse(cartLocalStorage) : false;
+}
+
+
 export function getScrollbarWidth() {
   // Crear un elemento div temporal
   const outer = document.createElement("div");
