@@ -1,6 +1,6 @@
 "use client";
 
-import { isInLocalStorage } from "@/helpers";
+import { isInLocalStorage, isRunningOnClient } from "@/helpers";
 import { Product } from "@/services/getProducts";
 import {
   Dispatch,
@@ -32,7 +32,7 @@ export default function CartContextProvider({
   children: ReactNode;
 }) {
   const [cart, setCart] = useState<CartProduct[] | []>(
-    isInLocalStorage("cart") || [],
+    isRunningOnClient() ? isInLocalStorage("cart") || [] : [],
   );
 
   function addProduct(id: Product["id"], name: Product["name"]) {
