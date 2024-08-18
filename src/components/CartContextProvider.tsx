@@ -1,5 +1,6 @@
 "use client";
 
+import { isInLocalStorage, isRunningOnClient } from "@/helpers";
 import { Product } from "@/services/getProducts";
 import {
   Dispatch,
@@ -30,7 +31,10 @@ export default function CartContextProvider({
 }: {
   children: ReactNode;
 }) {
-  const [cart, setCart] = useState<CartProduct[] | []>([]);
+  const [cart, setCart] = useState<CartProduct[] | []>(
+    isRunningOnClient() ? isInLocalStorage("cart") || [] : [],
+  );
+
   function addProduct(id: Product["id"], name: Product["name"]) {
     const productIndex = cart.findIndex((cartProduct) => cartProduct.id === id);
     if (productIndex !== -1) {
@@ -40,6 +44,7 @@ export default function CartContextProvider({
         return cartProduct;
       });
       setCart(newCart);
+      localStorage.setItem("cart", JSON.stringify(newCart));
     } else {
       setCart([...cart, { name: name, id: id, quantity: 1 }]);
     }
@@ -54,6 +59,7 @@ export default function CartContextProvider({
       })
       .filter((cartProduct) => cartProduct.quantity > 0);
     setCart(newCart);
+    localStorage.setItem("cart", JSON.stringify(newCart));
   }
 
   return (
