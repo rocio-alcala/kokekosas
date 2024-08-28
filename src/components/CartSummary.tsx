@@ -34,7 +34,7 @@ export default function CartSummary() {
       </thead>
       <tbody>
         {cart.map((cartProduct: CartProduct) => (
-          <CartCard {...cartProduct} key={cartProduct.id} />
+          <CartCard cartProduct={cartProduct} key={cartProduct.id} />
         ))}
       </tbody>
       <Link href={`https://wa.me/543518193522?text=${buyWhatsAppMessage}`}>
