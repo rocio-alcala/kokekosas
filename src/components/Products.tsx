@@ -8,7 +8,7 @@ export default async function Products() {
   return (
     <div className="mt-10 flex flex-wrap items-center justify-center md:justify-around lg:p-10">
       {products.map((product) => (
-        <ProductCard {...product} key={product.name} />
+        <ProductCard product={product} key={product.name} />
       ))}
     </div>
   );
