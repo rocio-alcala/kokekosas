@@ -25,7 +25,7 @@ export default function CartSummary() {
   }, [cart]);
 
   return (
-    <table className="flex w-full flex-col p-6 ">
+    <table className="flex w-full flex-col overflow-y-scroll p-6">
       <thead>
         <tr className="flex items-center justify-between p-3">
           <th className="text-start">Producto</th>
