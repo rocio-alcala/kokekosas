@@ -25,7 +25,7 @@ export default function CartSummary() {
   }, [cart]);
 
   return (
-    <table className="flex w-full flex-col p-6 ">
+    <table className="flex w-full flex-col overflow-y-scroll p-6">
       <thead>
         <tr className="flex items-center justify-between p-3">
           <th className="text-start">Producto</th>
@@ -34,7 +34,7 @@ export default function CartSummary() {
       </thead>
       <tbody>
         {cart.map((cartProduct: CartProduct) => (
-          <CartCard {...cartProduct} key={cartProduct.id} />
+          <CartCard cartProduct={cartProduct} key={cartProduct.id} />
         ))}
       </tbody>
       <Link href={`https://wa.me/543518193522?text=${buyWhatsAppMessage}`}>

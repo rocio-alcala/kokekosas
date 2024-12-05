@@ -11,16 +11,12 @@ import {
   useState,
 } from "react";
 
-export interface CartProduct {
-  id: number;
-  quantity: number;
-  name: string;
-}
+export type CartProduct = Product & { quantity: number };
 
 interface CartContext {
   setCart: Dispatch<SetStateAction<[] | CartProduct[]>>;
-  cart: CartProduct[];
-  addProduct: (id: Product["id"], name: Product["name"]) => void;
+  cart:  CartProduct [];
+  addProduct: (product: Product) => void;
   removeProduct: (id: Product["id"]) => void;
 }
 
@@ -31,22 +27,24 @@ export default function CartContextProvider({
 }: {
   children: ReactNode;
 }) {
-  const [cart, setCart] = useState<CartProduct[] | []>(
+  const [cart, setCart] = useState< CartProduct [] | []>(
     isRunningOnClient() ? isInLocalStorage("cart") || [] : [],
   );
 
-  function addProduct(id: Product["id"], name: Product["name"]) {
-    const productIndex = cart.findIndex((cartProduct) => cartProduct.id === id);
+  function addProduct(product: Product) {
+    const productIndex = cart.findIndex(
+      (cartProduct) => cartProduct.id === product.id,
+    );
     if (productIndex !== -1) {
       const newCart = cart.map((cartProduct) => {
-        if (cartProduct.id === id)
+        if (cartProduct.id === product.id)
           return { ...cartProduct, quantity: cartProduct.quantity + 1 };
         return cartProduct;
       });
       setCart(newCart);
       localStorage.setItem("cart", JSON.stringify(newCart));
     } else {
-      setCart([...cart, { name: name, id: id, quantity: 1 }]);
+      setCart([...cart, { ...product, quantity: 1 }]);
     }
   }
 

@@ -7,7 +7,6 @@ import { cn } from "@/helpers";
 import { IoMdClose, IoMdMenu } from "react-icons/io";
 
 import NavBarToggle from "./NavBarToggle";
-import { FaShoppingCart } from "react-icons/fa";
 import Cart from "./Cart";
 import CartSummary from "./CartSummary";
 import { useCartContext } from "./CartContextProvider";
